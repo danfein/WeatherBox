@@ -153,6 +153,11 @@ void sendToWU()
   client.print(inches);
   client.print("&action=updateraw");//Standard update
   //client.print("&softwaretype=Particle-Photon&action=updateraw&realtime=1&rtfreq=5");  //Rapid Fire update rate - for sending multiple times per minute, specify frequency in seconds
+  client.print(" HTTP/1.0\r\n");
+  client.print("Accept: text/html\r\n");
+  client.print("Host: ");
+  client.print(SERVER);
+  client.print("\r\n\r\n");
   client.println();
   Serial.println("Upload complete");
   delay(200);                         // Without the delay it is less reliable (if sleeping after send)
